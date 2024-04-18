@@ -27,7 +27,7 @@ public class Task {
     private Date dueDate;
 
     @ManyToOne
-    @JoinColumn(name = "processor_id", referencedColumnName = "processorId")
+    @JoinColumn(name = "processorId", referencedColumnName = "processorId")
     private Processor processor;
 
 

@@ -1,6 +1,5 @@
 package ch.topp.tobias.toodle.processor;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,36 +8,21 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 @Entity
 public class Processor {
 
     @Id
     @GeneratedValue
-    private long processorId;
+    private Long processorId;
 
     @Column(nullable = false)
     @Size(max = 255)
     @NotEmpty
-    private String firstName;
+    private String firstName; // first name in German
 
     @Column(nullable = false)
     @Size(max = 255)
     @NotEmpty
-    private String secondName;
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private String secondName; // last name in German
 }
