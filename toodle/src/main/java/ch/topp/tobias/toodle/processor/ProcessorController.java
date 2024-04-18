@@ -1,22 +1,25 @@
 package ch.topp.tobias.toodle.processor;
 
-import ch.topp.tobias.toodle.processor.Processor;
+
 import ch.topp.tobias.toodle.security.Roles;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.annotation.security.RolesAllowed;
-import org.springframework.context.annotation.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/processors")
+@SecurityRequirement(name = "bearerAuth")
+@Validated
 public class ProcessorController {
 
-    private final ch.topp.tobias.toodle.processor.ProcessorService processorService;
+    private final ProcessorService processorService;
 
-    public ProcessorController(ch.topp.tobias.toodle.processor.ProcessorService processorService) {
+
+    public ProcessorController(ProcessorService processorService) {
         this.processorService = processorService;
     }
 
@@ -34,19 +37,22 @@ public class ProcessorController {
         return new ResponseEntity<>(processor, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("api/processor/create")
+    @RolesAllowed(Roles.Update)
     public ResponseEntity<Processor> createProcessor(@RequestBody Processor processor) {
         Processor createdProcessor = processorService.insertProcessor(processor);
         return new ResponseEntity<>(createdProcessor, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("api/processor/update/{id}")
+    @RolesAllowed(Roles.Update)
     public ResponseEntity<Processor> updateProcessor(@RequestBody Processor processor, @PathVariable Long id) {
         Processor updatedProcessor = processorService.updateProcessor(processor, id);
         return new ResponseEntity<>(updatedProcessor, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("api/processor/delete/{id}")
+    @RolesAllowed(Roles.Admin)
     public ResponseEntity<Void> deleteProcessor(@PathVariable Long id) {
         processorService.deleteProcessor(id);
         return ResponseEntity.noContent().build();

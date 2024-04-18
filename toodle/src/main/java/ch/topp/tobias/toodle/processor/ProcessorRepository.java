@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface ProcessorRepository extends JpaRepository<Processor, Long> {
-    List<Processor> findByOrderByNameAsc();
+    List<Processor> findByOrderByFirstName();
 
 }

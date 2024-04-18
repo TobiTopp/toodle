@@ -13,16 +13,15 @@ import lombok.Data;
 public class Processor {
 
     @Id
-    @GeneratedValue
     private Long processorId;
 
     @Column(nullable = false)
     @Size(max = 255)
     @NotEmpty
-    private String firstName; // first name in German
+    private String firstName;
 
     @Column(nullable = false)
     @Size(max = 255)
     @NotEmpty
-    private String secondName; // last name in German
+    private String secondName;
 }

@@ -17,7 +17,7 @@ public class ProcessorService {
     }
 
     public List<Processor> getProcessors() {
-        return repository.findByOrderByNameAsc();
+        return repository.findByOrderByFirstName();
     }
 
     public Processor getProcessor(Long id) {

@@ -1,6 +1,7 @@
 package ch.topp.tobias.toodle.Task;
 
 
+import ch.topp.tobias.toodle.Topic.Topic;
 import ch.topp.tobias.toodle.processor.Processor;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -23,12 +24,18 @@ public class Task {
     private String taskName;
 
     @Column(nullable = false)
+    @NotEmpty String taskDescription;
+    @Column(nullable = false)
     @NotEmpty
     private Date dueDate;
 
     @ManyToOne
     @JoinColumn(name = "processorId", referencedColumnName = "processorId")
     private Processor processor;
+
+    @ManyToOne
+    @JoinColumn(name = "topicId", referencedColumnName = "topicId")
+    private Topic topic;
 
 
 

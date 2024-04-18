@@ -13,14 +13,18 @@ import java.util.List;
 public class Tag {
 
     @Id
+    @GeneratedValue
+    private Long tagId;
+
     @Size(max = 255)
     @NotEmpty
-    private String name;
+    private String tagName;
 
     @Column(nullable = false)
     @Size(max = 255)
     private String description;
 
-    @ManyToMany(mappedBy = "tags")
-    private List<Topic> themenbereiche;
+    @ManyToOne
+    @JoinColumn(name = "topic_name")  // Hier stellen Sie sicher, dass die Spalte in der Datenbank existiert
+    private Topic topic;
 }

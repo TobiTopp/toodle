@@ -12,20 +12,18 @@ import java.util.List;
 @Entity
 public class Topic {
 
+
     @Id
+    private Long topicId;
+
     @Size(max = 255)
     @NotEmpty
-    private String name;
+    private String topicName;
 
     @Column(nullable = false)
     @Size(max = 255)
-    private String beschreibung; // Description in German
+    private String topicDescription;
 
-    @ManyToMany
-    @JoinTable(
-            name = "themenbereich_tag",
-            joinColumns = @JoinColumn(name = "themenbereich_name"),
-            inverseJoinColumns = @JoinColumn(name = "tag_name")
-    )
+    @OneToMany(mappedBy = "topic")
     private List<Tag> tags;
 }
