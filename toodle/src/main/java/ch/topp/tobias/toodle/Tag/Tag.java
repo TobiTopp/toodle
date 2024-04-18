@@ -22,9 +22,7 @@ public class Tag {
 
     @Column(nullable = false)
     @Size(max = 255)
-    private String description;
+    private String tagDescription;
 
-    @ManyToOne
-    @JoinColumn(name = "topic_name")  // Hier stellen Sie sicher, dass die Spalte in der Datenbank existiert
-    private Topic topic;
+
 }

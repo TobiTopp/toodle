@@ -33,8 +33,7 @@ public class TagService {
                 .map(tagOrig -> {
                     tagOrig.setTagId(tag.getTagId());
                     tagOrig.setTagName(tag.getTagName());
-                    tagOrig.setDescription(tag.getDescription());
-                    tagOrig.setTopic(tag.getTopic());
+                    tagOrig.setTagDescription(tag.getTagDescription());
                     return repository.save(tagOrig);
                 })
                 .orElseGet(() -> repository.save(tag));

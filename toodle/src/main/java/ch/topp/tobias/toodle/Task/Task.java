@@ -1,14 +1,17 @@
 package ch.topp.tobias.toodle.Task;
 
 
+import ch.topp.tobias.toodle.Tag.Tag;
 import ch.topp.tobias.toodle.Topic.Topic;
 import ch.topp.tobias.toodle.processor.Processor;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -26,16 +29,16 @@ public class Task {
     @Column(nullable = false)
     @NotEmpty String taskDescription;
     @Column(nullable = false)
-    @NotEmpty
+    @NotNull
     private Date dueDate;
 
-    @ManyToOne
-    @JoinColumn(name = "processorId", referencedColumnName = "processorId")
-    private Processor processor;
+    @OneToMany(mappedBy = "processorId")
+    private List<Processor> processorData;
 
-    @ManyToOne
-    @JoinColumn(name = "topicId", referencedColumnName = "topicId")
-    private Topic topic;
+    @OneToMany(mappedBy = "topicId")
+    private List<Topic> topicData;
+
+
 
 
 

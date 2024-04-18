@@ -24,6 +24,6 @@ public class Topic {
     @Size(max = 255)
     private String topicDescription;
 
-    @OneToMany(mappedBy = "topic")
-    private List<Tag> tags;
+    @OneToMany(mappedBy = "tagId")
+    private List<Tag> tagDatas;
 }

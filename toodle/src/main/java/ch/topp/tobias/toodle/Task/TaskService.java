@@ -35,7 +35,8 @@ public class TaskService {
                     taskOrig.setTaskName(task.getTaskName());
                     taskOrig.setTaskDescription(task.getTaskDescription());
                     taskOrig.setDueDate(task.getDueDate());
-                    taskOrig.setProcessor(task.getProcessor());
+                    taskOrig.setProcessorData(task.getProcessorData());
+                    taskOrig.setTopicData(task.getTopicData());
                     return repository.save(taskOrig);
                 })
                 .orElseGet(() -> repository.save(task));
