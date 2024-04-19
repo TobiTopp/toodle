@@ -18,7 +18,6 @@ import java.util.List;
 public class Task {
 
     @Id
-    @GeneratedValue
     private long TaskId;
 
     @Column(nullable = false)

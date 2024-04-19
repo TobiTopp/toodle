@@ -24,5 +24,12 @@ public class Tag {
     @Size(max = 255)
     private String tagDescription;
 
+    public Tag() {}
 
+    public Tag(String tagName, String tagDescription) {
+        this.tagName = tagName;
+        this.tagDescription = tagDescription;
+    }
 }
+
+
