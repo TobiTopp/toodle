@@ -18,7 +18,9 @@ import java.util.List;
 public class Task {
 
     @Id
-    private long TaskId;
+    @GeneratedValue
+    @NotNull
+    private long taskId;
 
     @Column(nullable = false)
     @Size(max = 255)
@@ -36,6 +38,9 @@ public class Task {
 
     @OneToMany(mappedBy = "topicId")
     private List<Topic> topicData;
+
+    @OneToMany(mappedBy = "tagId")
+    private List<Tag> tagData;
 
 
 

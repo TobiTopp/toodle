@@ -52,7 +52,7 @@ public class TaskController {
     }
 
     @DeleteMapping("api/task/delete/{id}")
-    @RolesAllowed(Roles.Admin)
+    @RolesAllowed(Roles.Update)
     public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
         return ResponseEntity.noContent().build();

@@ -37,6 +37,7 @@ public class TaskService {
                     taskOrig.setDueDate(task.getDueDate());
                     taskOrig.setProcessorData(task.getProcessorData());
                     taskOrig.setTopicData(task.getTopicData());
+                    taskOrig.setTagData(task.getTagData());
                     return repository.save(taskOrig);
                 })
                 .orElseGet(() -> repository.save(task));

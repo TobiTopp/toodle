@@ -52,7 +52,7 @@ public class TopicController {
     }
 
     @DeleteMapping("api/topic/delete/{id}")
-    @RolesAllowed(Roles.Admin)
+    @RolesAllowed(Roles.Update)
     public ResponseEntity<Void> deleteTopic(@PathVariable Long id) {
         topicService.deleteTopic(id);
         return ResponseEntity.noContent().build();

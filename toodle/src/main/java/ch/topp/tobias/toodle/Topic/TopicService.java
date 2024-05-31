@@ -34,7 +34,6 @@ public class TopicService {
                     topicOrig.setTopicId(topic.getTopicId());
                     topicOrig.setTopicName(topic.getTopicName());
                     topicOrig.setTopicDescription(topic.getTopicDescription());
-                    topicOrig.setTagDatas(topic.getTagDatas());
                     return repository.save(topicOrig);
                 })
                 .orElseGet(() -> repository.save(topic));

@@ -3,6 +3,7 @@ package ch.topp.tobias.toodle.Topic;
 import ch.topp.tobias.toodle.Tag.Tag;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -14,6 +15,8 @@ public class Topic {
 
 
     @Id
+    @GeneratedValue
+    @NotNull
     private Long topicId;
 
     @Size(max = 255)
@@ -24,6 +27,5 @@ public class Topic {
     @Size(max = 255)
     private String topicDescription;
 
-    @OneToMany(mappedBy = "tagId")
-    private List<Tag> tagDatas;
+
 }

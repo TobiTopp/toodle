@@ -52,7 +52,7 @@ public class TagController {
     }
 
     @DeleteMapping("api/tag/delete/{id}")
-    @RolesAllowed(Roles.Admin)
+    @RolesAllowed(Roles.Update)
     public ResponseEntity<Void> deleteTag(@PathVariable Long id) {
         tagService.deleteTag(id);
         return ResponseEntity.noContent().build();

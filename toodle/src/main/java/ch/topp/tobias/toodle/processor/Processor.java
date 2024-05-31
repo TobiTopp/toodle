@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -13,6 +14,8 @@ import lombok.Data;
 public class Processor {
 
     @Id
+    @GeneratedValue
+    @NotNull
     private Long processorId;
 
     @Column(nullable = false)
@@ -23,5 +26,4 @@ public class Processor {
     @Column(nullable = false)
     @Size(max = 255)
     @NotEmpty
-    private String secondName;
-}
+    private String secondName; }

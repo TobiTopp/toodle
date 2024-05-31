@@ -38,14 +38,14 @@ public class ProcessorController {
     }
 
     @PostMapping("api/processor/create")
-    @RolesAllowed(Roles.Update)
+    @RolesAllowed(Roles.Admin)
     public ResponseEntity<Processor> createProcessor(@RequestBody Processor processor) {
         Processor createdProcessor = processorService.insertProcessor(processor);
         return new ResponseEntity<>(createdProcessor, HttpStatus.CREATED);
     }
 
     @PutMapping("api/processor/update/{id}")
-    @RolesAllowed(Roles.Update)
+    @RolesAllowed(Roles.Admin)
     public ResponseEntity<Processor> updateProcessor(@RequestBody Processor processor, @PathVariable Long id) {
         Processor updatedProcessor = processorService.updateProcessor(processor, id);
         return new ResponseEntity<>(updatedProcessor, HttpStatus.OK);
